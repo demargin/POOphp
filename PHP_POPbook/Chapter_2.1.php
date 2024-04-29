@@ -30,16 +30,22 @@ class User{
 }
 
 $my_obj = new User('bob');
-$other = $my_obj;
-$my_obj->name = 'alice';
+$other = $my_obj;//this will create two references for two differents objects
+/** 
+ * There is a way of enforcing pass by reference, but it meant
+ * remembering to use a clumsy construction, to try it, first
+ * you should uncomment the next code line and comment the code line above
+ * */
+//$other =& $my_obj;//Enforing for one reference to the same object
 
+$my_obj->name = 'alice';
 
 echo '$my_obj->name = ' . $my_obj->name;
 echo "\n-----\n";
 echo '$other->name = ' . $other->name;
 
 
-//Uncomment this for trying the code v5 php versions or earlier
+//Uncomment the next code fragment for trying the code on v5 php versions or earlier
 /* class User{
 
     public $name;
